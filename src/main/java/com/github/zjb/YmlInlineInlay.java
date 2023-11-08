@@ -55,6 +55,7 @@ public class YmlInlineInlay implements BulkFileListener, EditorTrackerListener {
             }
             if (file.getFileType() instanceof YAMLFileType || file.getFileType() instanceof JavaFileType) {
                 Project project = ProjectLocator.getInstance().guessProjectForFile(file);
+                if (project == null) continue;
                 List<? extends Editor> activeEditors = EditorTracker.getInstance(project).getActiveEditors();
                 for (Editor activeEditor : activeEditors) {
                     showInlay(activeEditor, FileDocumentManager.getInstance().getFile(activeEditor.getDocument()), project);
@@ -84,10 +85,10 @@ public class YmlInlineInlay implements BulkFileListener, EditorTrackerListener {
     private static void showInlay(Editor editor, VirtualFile file, Project project) {
         DumbService.getInstance(project).smartInvokeLater(() -> {
             try {
-                PsiFile psiFile = PsiUtilCore.getPsiFile(project, file);
-                if (psiFile == null) {
+                if (!file.exists() || !file.isValid())  {
                     return;
                 }
+                PsiFile psiFile = PsiUtilCore.getPsiFile(project, file);
                 if (!(psiFile.getFileType() instanceof JavaFileType)) {
                     return;
                 }

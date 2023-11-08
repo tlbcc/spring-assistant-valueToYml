@@ -1,7 +1,7 @@
 <idea-plugin>
-    <id>spring-assistant-@valueToYml</id>
-    <name>spring-assistant-@valueToYml</name>
-    <vendor email="zjbhnay@163.com" url="https://github.com/zjb-it">ZhaoJingBo</vendor>
+    <id>spring-assistant-@valueToYml-tlbcc</id>
+    <name>spring-assistant-@valueToYml-tlbcc</name>
+    <vendor email="tlbcc@foxmail.com" url="https://github.com/tlbcc">TLBCC</vendor>
 
     <description><![CDATA[
 
@@ -9,6 +9,8 @@
     <title>spring-assistant-@valueToYml</title>
 </head>
 <body>
+
+<p>此插件为spring-assistant-@valueToYml插件修改版，原插件地址：<a href="https://github.com/zjb-it/spring-assistant-valueToYml">https://github.com/zjb-it/spring-assistant-valueToYml</a></p>
 
 <h1>spring assistant, (ctrl + left mouse) on the annotation(org.springframework.beans.factory.annotation.Value) will to yml</h1>
 
